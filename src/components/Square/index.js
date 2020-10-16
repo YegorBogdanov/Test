@@ -27,8 +27,8 @@ function Square({ name, onScreen, position, screenNum }) {
     background: "#425592",
     position: "absolute",
     borderRadius: '5%',
-    // top: window.innerWidth / 2 + position.y,
-    // left: window.innerHeight / 2 + position.x
+    top: window.innerWidth / 2 + position.y,
+    left: window.innerHeight / 2 + position.x
   };
 
   const dispatch = useDispatch();

@@ -1,32 +1,22 @@
 import React from 'react';
 import './App.css';
-import { useSelector } from 'react-redux';
 import { Route, Switch, Link } from 'react-router-dom';
 import Screen from './components/Screen';
+import Screen2 from './components/Screen2';
 
 function App() {
-
-  const screenNum = 2;
-  const screenFill = useSelector((state) => state.screens)
-  const components = screenFill.filter((component) => component.onScreen === 1)
-  // console.log('innerWidth', window.innerWidth)
-  // console.log('screenFill', screenFill);
-
   return (
     <>
-      <Link to="/screen2">screen2</Link>
+      <button><Link to="/screen1">screen1</Link></button>
+      <button><Link to="/screen2">screen2</Link></button>
       <Switch>
-        <Route path='/screen2'>
+        <Route path='/screen1'>
           <Screen />
         </Route>
+        <Route path='/screen2'>
+          <Screen2 />
+        </Route>
       </Switch>
-      <div className="App-header" style={{ backgroundColor: "blue" }}>
-        {components.length > 0 && components.map(({ Component, name, onScreen, position }) => (
-          <div key={name}>
-            <Component name={name} onScreen={onScreen} position={position} screenNum={screenNum} />
-          </div>
-        ))}
-      </div>
     </>
   )
 }

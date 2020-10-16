@@ -3,8 +3,8 @@ import Round from '../components/Round';
 import Square from '../components/Square';
 
 const preloadState = [
-  { Component: Round, name: 'round', onScreen: 1, position: { x: 0, y: 0 } },
-  { Component: Square, name: 'square', onScreen: 1, position: { x: 0, y: 0 } }
+  { Component: Round, name: 'round', onScreen: 1, position: { x: 150, y: -600 } },
+  { Component: Square, name: 'square', onScreen: 1, position: { x: -150, y: -600 } }
 ]
 
 export function screenReducer(state = preloadState, action) {
