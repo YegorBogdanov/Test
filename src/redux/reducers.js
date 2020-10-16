@@ -10,13 +10,12 @@ const preloadState = [
 export function screenReducer(state = preloadState, action) {
   switch (action.type) {
     case SET_SCREEN:
-      if (action.payload)
-        return state.map((component) => {
-          if (component.name === action.payload.componentName) {
-            return { ...component, onScreen: action.payload.setOnScreen }
-          }
-          else return component
-        })
+      return state.map((component) => {
+        if (component.name === action.payload.componentName) {
+          return { ...component, onScreen: action.payload.setOnScreen }
+        }
+        else return component
+      })
     default:
       return state;
   }

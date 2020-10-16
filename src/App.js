@@ -21,11 +21,7 @@ function App() {
 
   const dispatch = useDispatch();
   const screenFill = useSelector((state) => state.screens)
-  const components = screenFill.map((component) => {
-    if (component.onScreen === 1) {
-      return component
-    }
-  })
+  const components = screenFill.filter((component) => component.onScreen === 1)
   console.log('components', components)
   console.log('screenFill', screenFill);
   return (

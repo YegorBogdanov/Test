@@ -20,13 +20,8 @@ function Screen() {
 
   const dispatch = useDispatch();
   const screenFill = useSelector((state) => state.screens)
-  const components = screenFill.map((component) => {
-    if (component.onScreen === 1) {
-      return component
-    }
-  })
-  // console.log('components', components)
-  // console.log(screenFill[0].component);
+  const components = screenFill.filter((component) => component.onScreen === 2)
+  console.log('components SCREEN2', components)
   return (
     <>
       <Link to='/'> screen1
