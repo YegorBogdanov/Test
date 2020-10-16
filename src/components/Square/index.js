@@ -12,7 +12,7 @@
 import React, { useState } from 'react';
 import { Resizable } from "re-resizable";
 import Draggable from 'react-draggable';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setScreen } from '../../redux/actions';
 
 

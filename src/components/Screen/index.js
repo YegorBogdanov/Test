@@ -7,9 +7,6 @@ function Screen() {
   const screenNum = 2
   const screenFill = useSelector((state) => state.screens)
   const components = screenFill.filter((component) => component.onScreen === 1)
-  console.log('components', components)
-  console.log('screenFill', screenFill);
-
   return (
     <>
       <button><Link to="/">Home</Link></button>
