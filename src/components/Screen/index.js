@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
+import '../../App.css';
 import { Resizable } from "re-resizable";
 import Draggable from 'react-draggable';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import Screen from './components/Screen';
-import { setScreen } from './redux/actions';
+import { Link } from 'react-router-dom';
+import { setScreen } from '../../redux/actions';
 
 const style = {
   display: "flex",
@@ -17,7 +16,7 @@ const style = {
   borderRadius: '5%',
 };
 
-function App() {
+function Screen() {
 
   const dispatch = useDispatch();
   const screenFill = useSelector((state) => state.screens)
@@ -26,20 +25,15 @@ function App() {
       return component
     }
   })
-  console.log('components', components)
-  console.log('screenFill', screenFill);
+  // console.log('components', components)
+  // console.log(screenFill[0].component);
   return (
-    <Router>
-      <Link to="/screen2">screen2</Link>
-      <Switch>
-        <Route path='/screen2'>
-          <Screen />
-        </Route>
-      </Switch>
-
+    <>
+      <Link to='/'> screen1
+</Link>
       <div className="App-header">
 
-        {components.length > 0 && components.map(({ Component, name, onScreen }) => (
+        {components.map(({ Component, name, onScreen }) => (
           <div key={name}>
             <Draggable
               handle=".handle"
@@ -55,15 +49,15 @@ function App() {
                   style={{ width: '90%', height: '90%' }}>
                   <Component />
                 </div>
-                <button onClick={() => dispatch(setScreen(name, 2))} style={{ position: 'absolute', bottom: '10px', right: '10px' }}>{`переместить на ${onScreen === 1 ? " 2 " : " 1 "} экран`}</button>
+                <button onClick={() => dispatch(setScreen(name, 1))} style={{ position: 'absolute', bottom: '10px', right: '10px' }}>{`переместить на ${onScreen === 1 ? " 2 " : " 1 "} экран`}</button>
               </Resizable>
             </Draggable>
           </div>
         ))}
 
       </div>
-    </Router>
+    </>
   )
 }
 
-export default App;
+export default Screen;
