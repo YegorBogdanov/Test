@@ -5,14 +5,14 @@ import Round from '../components/Round';
 import Square from '../components/Square';
 
 const preloadState = [
-  { component: Round, name: 'round', onScreen: 1 },
-  { component: Square, name: 'square', onScreen: 1 }
+  { Component: Round, name: 'round', onScreen: 1, position: { x: 0, y: 0 } },
+  { Component: Square, name: 'square', onScreen: 1, position: { x: 0, y: 0 } }
 ]
 
 const store = createStore(combineReducers({
   screens: screenReducer
 }),
-  { privet: 'privet' },
+  {},
   composeWithDevTools(),
 )
 
